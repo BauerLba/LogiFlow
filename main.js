@@ -46,11 +46,24 @@
 
         btn.textContent = 'Wird gesendet…';
         btn.disabled = true;
-        setTimeout(() => {
-            form.style.opacity = '0.35';
-            form.style.pointerEvents = 'none';
-            ok.classList.add('show');
-        }, 1000);
+
+        const formData = new FormData(form);
+
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString(),
+        })
+            .then(() => {
+                form.style.opacity = '0.35';
+                form.style.pointerEvents = 'none';
+                ok.classList.add('show');
+            })
+            .catch((error) => {
+                btn.textContent = 'Fehler beim Senden';
+                btn.disabled = false;
+                console.error(error);
+            });
     });
 
     // Cursor glow
