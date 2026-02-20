@@ -2,18 +2,18 @@
 (function () {
     'use strict';
 
-    // Navbar scroll
+
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
         navbar.classList.toggle('scrolled', window.scrollY > 30);
     }, { passive: true });
 
-    // Hero reveal on load
+
     window.addEventListener('load', () => {
         document.querySelector('.hero-body')?.classList.add('show');
     });
 
-    // Scroll reveal for cards
+
     const obs = new IntersectionObserver((entries) => {
         entries.forEach((e, i) => {
             if (e.isIntersecting) {
@@ -26,7 +26,7 @@
 
     document.querySelectorAll('.about-card').forEach(c => obs.observe(c));
 
-    // Contact form
+
     const form = document.getElementById('contact-form');
     const ok = document.getElementById('form-ok');
     const btn = document.getElementById('form-btn');
@@ -58,10 +58,8 @@
                 form.style.opacity = '0.35';
                 form.style.pointerEvents = 'none';
                 ok.classList.add('show');
-
-                // Nach 5 Sekunden alles zurücksetzen, damit das Formular wieder "frei" ist
                 setTimeout(() => {
-                    form.reset(); // Formular leeren
+                    form.reset();
                     form.style.opacity = '1';
                     form.style.pointerEvents = 'all';
                     ok.classList.remove('show');
@@ -76,7 +74,7 @@
             });
     });
 
-    // Cursor glow
+
     const glow = Object.assign(document.createElement('div'), {
         style: `position:fixed;width:280px;height:280px;background:radial-gradient(circle,rgba(59,130,246,0.07) 0%,transparent 70%);border-radius:50%;pointer-events:none;z-index:0;transform:translate(-50%,-50%);transition:left .1s,top .1s;`
     });
