@@ -58,6 +58,16 @@
                 form.style.opacity = '0.35';
                 form.style.pointerEvents = 'none';
                 ok.classList.add('show');
+
+                // Nach 5 Sekunden alles zurücksetzen, damit das Formular wieder "frei" ist
+                setTimeout(() => {
+                    form.reset(); // Formular leeren
+                    form.style.opacity = '1';
+                    form.style.pointerEvents = 'all';
+                    ok.classList.remove('show');
+                    btn.textContent = 'Nachricht absenden';
+                    btn.disabled = false;
+                }, 5000);
             })
             .catch((error) => {
                 btn.textContent = 'Fehler beim Senden';
