@@ -28,3 +28,7 @@ LogiFlow ist eine moderne, responsive Website für ein Logistikunternehmen. Die 
 ## 📄 Lizenz
 
 Dieses Projekt ist für private Zwecke erstellt worden.
+
+## Info
+
+Kann unter der Url: https://logiflowsaas.netlify.app/# aufgerufen werden.
